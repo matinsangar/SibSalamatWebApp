@@ -1,22 +1,98 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    background-color: #181818;
+    color: #fff;
+    margin-bottom: 60px;
+}
+
+.btn,
+.btn-link.nav-link,
+.form-control {
+    color: #fff;
+
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.form-control,
+.form-check-input {
+    background-color: rgba(193, 214, 204, 0.54);
+    border-color: #1a1e21;
+}
+
+.form-control:hover,
+.form-check-input:hover {
+    background-color: #c1d6cc;
+    border-color: #1a1e21;
+}
+
+.btn:hover,
+.btn-link.nav-link:hover {
+    background-color: #56c225;
+    border-color: #56c225;
+}
+
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem #fff, 0 0 0 0.25rem #007bff;
+}
+
+a {
+    color: #258cfb;
+}
+
+.navbar {
+    background-color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #fff;
+}
+
+@media (max-width: 770px) {
+    h2, p, footer {
+        text-align: center;
+    }
+
+    .custom-btn {
+        width: 100%;
+        margin: 5px 0;
+        display: flex;
+        justify-content: center;
+    }
+
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(26, 25, 25, 0.8);
+}
+
+.favicon-zoom {
+    transition: transform 0.2s;
+    transform: scale(1.10);
+}
+
+.favicon-zoom:hover {
+    transform: scale(1.2);
 }
