@@ -1,0 +1,21 @@
+@* @model SibSalamat.Views.Account.SignUpViewModel *@
+@model SibSalamat.Models.Admin
+@{
+    ViewData["Title"] = "SignUp";
+}
+<h2>SignUp Section</h2>
+<form method="post">
+    <div class="form-group">
+        <label for="inputUsername">Username</label>
+        <input type="text" name="Name" class="form-control" placeholder="Name"/>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword">Password</label>
+        <input type="password" name="Password" class="form-control" placeholder="Password"/>
+    </div>
+    <div class="form-group">
+        <label for="inputEmail">Email</label>
+        <input type="email" name="email" class="form-control" placeholder="Email"/>
+    </div>
+    <button type="submit" class="btn btn-primary " style="padding-top: 15px; margin-top: 20px">Register</button>
+</form>
