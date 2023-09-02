@@ -17,4 +17,15 @@ public class MongoDbContext
         var mongoClinet = new MongoClient(connectionString);
         _database = mongoClinet.GetDatabase("SibSalamatApp");
     }
+
+    public IMongoCollection<Admin> Admins
+    {
+        get { return _database.GetCollection<Admin>("Admins"); }
+    }
+
+    public IMongoCollection<User> Users
+    {
+        get { return _database.GetCollection<User>("Users"); }
+    }
+    
 }
