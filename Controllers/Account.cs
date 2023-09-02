@@ -16,10 +16,11 @@ public class Account : Controller
     {
         _mongoDbContext = mongoDbContext;
     }
-    
-    //GET method 
-
     public IActionResult SignUp()
+    {
+        return View();
+    }
+    public IActionResult Login()
     {
         return View();
     }
