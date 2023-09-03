@@ -9,7 +9,7 @@ public class Admin
 {
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
-    public string ID { get; set; }
+    public string ID { get; set; } = string.Empty;
 
     [Required(ErrorMessage = "نام کاربری الزامی است.")]
     [MinLength(3)]

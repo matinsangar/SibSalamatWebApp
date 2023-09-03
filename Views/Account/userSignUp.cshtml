@@ -5,20 +5,20 @@
 <h2>user SignUp Section</h2>
 <form method="post">
     <div class="form-group">
-        <label for="inputUsername">نام کاربری</label>
-        <input type="text" name="Name" class="form-control" id="inputUsername" placeholder="نام , نام خانوادگی "/>
+        <label asp-for="Name">نام کاربری</label>
+        <input type="text" asp-for="Name" class="form-control" id="inputUsername" placeholder="نام , نام خانوادگی "/>
     </div>
     <div class="form-group">
-        <label for="inputPassword">رمز عبور</label>
-        <input type="password" name="Password" class="form-control" id="inputPassword" placeholder="رمز عبور"/>
+        <label asp-for="Password">رمز عبور</label>
+        <input type="password" asp-for="Password" class="form-control" id="inputPassword" placeholder="رمز عبور"/>
     </div>
     <div class="form-group">
-        <label for="inputEmail">ایمیل</label>
-        <input type="email" name="Eٍٍmail" class="form-control" id="inputEmail" placeholder="ایمیل"/>
+        <label asp-for="Email">ایمیل</label>
+        <input type="email" asp-for="Email" class="form-control" id="inputEmail" placeholder="ایمیل"/>
     </div>
     <div class="form-group">
-        <label for="NationalCode">کدملی</label>
-        <input name="NationalCode" id="NationalCode" class="form-control" placeholder="کدملی"/>
+        <label asp-for="NationalCode">کدملی</label>
+        <input asp-for="NationalCode" id="NationalCode" class="form-control" placeholder="کدملی"/>
     </div>
 
 

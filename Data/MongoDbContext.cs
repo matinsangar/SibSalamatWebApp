@@ -32,6 +32,7 @@ public class MongoDbContext
     {
         var user = new User
         {
+            UserID = ObjectId.GenerateNewId().ToString(),
             Name = name,
             Password = password,
             Email = email,
@@ -44,6 +45,7 @@ public class MongoDbContext
     {
         var admin = new Admin
         {
+            ID = ObjectId.GenerateNewId().ToString(),
             Name = Name,
             Password = Password,
             Email = Email,

@@ -8,10 +8,9 @@ namespace SibSalamat.Models;
 
 public class User
 {
-    [Required]
     [BsonId]
     [BsonRepresentation(BsonType.ObjectId)]
-    public string UserID { get; set; }
+    public string UserID { get; set; } = string.Empty;
 
     [Required] [MinLength(3)] public string Name { get; set; }
     [Required] [MinLength(5)] public string Password { get; set; }

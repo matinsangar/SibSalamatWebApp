@@ -5,16 +5,16 @@
 <h2>ورود</h2>
 <form method="post">
     <div class="form-group">
-        <label for="inputUsername">نام کاربری</label>
-        <input type="text" name="Name" class="form-control" id="inputUsername" placeholder="نام کاربری"/>
+        <label asp-for="Name">نام کاربری</label>
+        <input type="text" asp-for="Name" class="form-control" id="inputUsername" placeholder="نام کاربری"/>
     </div>
     <div class="form-group">
-        <label for="inputPassword">رمز عبور</label>
-        <input type="password" name="Password" class="form-control" id="inputPassword" placeholder="رمز عبور"/>
+        <label asp-for="Password">رمز عبور</label>
+        <input type="password" asp-for="Password" class="form-control" id="inputPassword" placeholder="رمز عبور"/>
     </div>
     <div class="form-group">
-        <label for="inputEmail">نظام پزشکی</label>
-        <input name="NezamPezeshki" class="form-control" id="inputEmail" placeholder="نظام پزشکی"/>
+        <label asp-for="NezamPezeshki">نظام پزشکی</label>
+        <input asp-for="NezamPezeshki" class="form-control" id="inputEmail" placeholder="نظام پزشکی"/>
     </div>
     <button type="submit" class="btn btn-primary " style="padding-top: 15px; margin-top: 20px">ورود</button>
 </form>
