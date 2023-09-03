@@ -62,4 +62,15 @@ public class MongoDbContext
 
         return false;
     }
+
+    public async Task<bool> VerifyUserLogin(string name, string password, string national_code)
+    {
+        var user = await Users.Find(u => u.Name == name).FirstOrDefaultAsync();
+        if (user != null && user.Password == password && user.NationalCode == national_code)
+        {
+            return true;
+        }
+
+        return false;
+    }
 }

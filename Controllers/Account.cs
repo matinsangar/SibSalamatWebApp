@@ -61,6 +61,19 @@ public class Account : Controller
     }
 
     [HttpPost]
+    public async Task<IActionResult> userSignUp(User user)
+    {
+        if (ModelState.IsValid)
+        {
+            await _mongoDbContext.RegisterUserAsync(user.Name, user.Password, user.Email, user.NationalCode);
+            return RedirectToAction("userLogin");
+        }
+
+        TempData["ErrorMessage"] = "اطلاعات داده شده معتبر نمی باشد";
+        return RedirectToAction("userSignUp");
+    }
+
+    [HttpPost]
     public async Task<IActionResult> Login(Admin admin)
     {
         var isLoginValid = await _mongoDbContext.VerifyAdminLogin(admin.Name, admin.Password, admin.NezamPezeshki);
@@ -68,7 +81,21 @@ public class Account : Controller
         {
             return RedirectToAction("Index", "Home");
         }
+
         TempData["ErrorMessage"] = "Invalid username or password.";
         return RedirectToAction("Login");
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> userLogin(User user)
+    {
+        var isLoginValid = await _mongoDbContext.VerifyUserLogin(user.Name, user.Password, user.NationalCode);
+        if (isLoginValid)
+        {
+            return RedirectToAction("Index", "Home");
+        }
+
+        TempData["ErrorMessage"] = "Invalid username or password.";
+        return RedirectToAction("userLogin");
     }
 }
