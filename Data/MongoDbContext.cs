@@ -27,5 +27,28 @@ public class MongoDbContext
     {
         get { return _database.GetCollection<User>("Users"); }
     }
-    
+
+    public async Task RegisterUserAsync(string name, string password, string email, string national_code)
+    {
+        var user = new User
+        {
+            Name = name,
+            Password = password,
+            Email = email,
+            NationalCode = national_code
+        };
+        await Users.InsertOneAsync(user);
+    }
+
+    public async Task RegisterAdminAsync(string Name, string Password, string Email, string NezamPezeshki)
+    {
+        var admin = new Admin
+        {
+            Name = Name,
+            Password = Password,
+            Email = Email,
+            NezamPezeshki = NezamPezeshki
+        };
+        await Admins.InsertOneAsync(admin);
+    }
 }

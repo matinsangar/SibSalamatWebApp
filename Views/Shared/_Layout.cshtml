@@ -27,13 +27,22 @@
                     </li>
                     <div class="dropdown show">
                         <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            منشی هستید؟
+                            پزشکان
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <a class="dropdown-item" asp-controller="Account" asp-action="SignUp">ثبت نام و احراز هویت</a>
                             <a class="dropdown-item" asp-controller="Account" asp-action="Login">ورود</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+                    <div class="dropdown show">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            بیماران
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" asp-controller="Account" asp-action="userSignUp">ثبت نام و احراز هویت</a>
+                            <a class="dropdown-item" asp-controller="Account" asp-action="userLogin">ورود</a>
                         </div>
                     </div>
                 </ul>

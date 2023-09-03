@@ -7,13 +7,22 @@ namespace SibSalamat.Models;
 
 public class Admin
 {
-    [Required]
-    [BsonId]
-    [BsonRepresentation(BsonType.ObjectId)]
-    public string AdminID { get; set; }
+    
+    // [BsonId]
+    // [BsonRepresentation(BsonType.ObjectId)]
+    // public string AdminID { get; set; }
 
-    [Required] [MinLength(3)] public string Name { get; set; }
-    [Required] [MinLength(5)] public string Password { get; set; }
-    [Required] [EmailAddress] public string Email { get; set; }
-    [Required] public string NezamPezeshki { get; set; }
+    [Required(ErrorMessage = "نام کاربری الزامی است.")]
+    [MinLength(3)]
+    public string Name { get; set; }
+
+    [Required(ErrorMessage = "رمز عبور الزامی است.")]
+    [MinLength(3)]
+    public string Password { get; set; }
+
+    [Required(ErrorMessage = "ایمیل الزامی است.")]
+    public string Email { get; set; }
+
+    [Required(ErrorMessage = "نظام پزشکی الزامی است.")]
+    public string NezamPezeshki { get; set; }
 }
