@@ -7,11 +7,6 @@ namespace SibSalamat.Models;
 
 public class Admin
 {
-    
-    // [BsonId]
-    // [BsonRepresentation(BsonType.ObjectId)]
-    // public string AdminID { get; set; }
-
     [Required(ErrorMessage = "نام کاربری الزامی است.")]
     [MinLength(3)]
     public string Name { get; set; }

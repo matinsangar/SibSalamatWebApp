@@ -57,7 +57,5 @@ public class Account : Controller
 
         TempData["ErrorMessage"] = "اطلاعات داده شده معتبر نمی باشد";
         return RedirectToAction("SignUp");
-        // await _mongoDbContext.RegisterAdminAsync(admin.Name, admin.Password, admin.Email, admin.NezamPezeshki);
-        // return RedirectToAction("Login");
     }
 }
