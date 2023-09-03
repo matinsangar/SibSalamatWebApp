@@ -45,6 +45,7 @@ public class Account : Controller
             await _mongoDbContext.RegisterAdminAsync(admin.Name, admin.Password, admin.Email, admin.NezamPezeshki);
             return RedirectToAction("Login");
         }
+
         foreach (var modelValue in ModelState.Values)
         {
             foreach (var error in modelValue.Errors)
@@ -57,5 +58,17 @@ public class Account : Controller
 
         TempData["ErrorMessage"] = "اطلاعات داده شده معتبر نمی باشد";
         return RedirectToAction("SignUp");
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Login(Admin admin)
+    {
+        var isLoginValid = await _mongoDbContext.VerifyAdminLogin(admin.Name, admin.Password, admin.NezamPezeshki);
+        if (isLoginValid)
+        {
+            return RedirectToAction("Index", "Home");
+        }
+        TempData["ErrorMessage"] = "Invalid username or password.";
+        return RedirectToAction("Login");
     }
 }

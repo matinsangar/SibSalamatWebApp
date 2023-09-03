@@ -51,4 +51,15 @@ public class MongoDbContext
         };
         await Admins.InsertOneAsync(admin);
     }
+
+    public async Task<bool> VerifyAdminLogin(string name, string password, string nezam_pezeshki)
+    {
+        var admin = await Admins.Find(a => a.Name == name).FirstOrDefaultAsync();
+        if (admin != null && admin.Password == password && admin.NezamPezeshki == nezam_pezeshki)
+        {
+            return true;
+        }
+
+        return false;
+    }
 }
