@@ -98,4 +98,9 @@ public class Account : Controller
         TempData["ErrorMessage"] = "Invalid username or password.";
         return RedirectToAction("userLogin");
     }
+
+    public IActionResult RequestVisit()
+    {
+        return View();
+    }
 }
