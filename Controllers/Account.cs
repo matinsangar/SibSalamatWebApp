@@ -92,7 +92,8 @@ public class Account : Controller
         var isLoginValid = await _mongoDbContext.VerifyUserLogin(user.Name, user.Password, user.NationalCode);
         if (isLoginValid)
         {
-            return RedirectToAction("Index", "Home");
+             return RedirectToAction("Index", "Home");
+          //  return RedirectToAction("RequestVisit");
         }
 
         TempData["ErrorMessage"] = "Invalid username or password.";
