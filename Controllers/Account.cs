@@ -103,4 +103,30 @@ public class Account : Controller
     {
         return View();
     }
+
+    [HttpPost]
+    public async Task<IActionResult> newPill(PharmacyDrug pharmacyDrug, IFormFile imageFile)
+    {
+        if (ModelState.IsValid)
+        {
+            if (imageFile != null && imageFile.Length > 0)
+            {
+                // Read the image 
+                using (var memoryStream = new MemoryStream())
+                {
+                    await imageFile.CopyToAsync(memoryStream);
+                    pharmacyDrug.Image = memoryStream.ToArray();
+                }
+            }
+
+            await _mongoDbContext.CreatePharmacyDrugAsync(pharmacyDrug);
+            return RedirectToAction("Index", "Home");
+        }
+        foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+        {
+            // Log or debug the error messages
+            Console.WriteLine(error.ErrorMessage);
+        }
+        return RedirectToAction("newPill");
+    }
 }
