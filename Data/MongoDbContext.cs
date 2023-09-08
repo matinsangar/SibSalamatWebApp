@@ -4,6 +4,7 @@ using MongoDB.Bson;
 using SibSalamat.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Drawing.Imaging;
 
 namespace SibSalamat.Data;
 
@@ -27,6 +28,12 @@ public class MongoDbContext
     {
         get { return _database.GetCollection<User>("Users"); }
     }
+
+    public IMongoCollection<PharmacyDrug> Pills
+    {
+        get { return _database.GetCollection<PharmacyDrug>("Pills"); }
+    }
+
 
     public async Task RegisterUserAsync(string name, string password, string email, string national_code)
     {
@@ -74,5 +81,44 @@ public class MongoDbContext
         }
 
         return false;
+    }
+
+    public async Task CreatePharmacyDrugAsync(PharmacyDrug pharmacyDrug)
+    {
+        await Pills.InsertOneAsync(pharmacyDrug);
+    }
+
+    public async Task<PharmacyDrug> GetPharmacyDrugAsync(string id)
+    {
+        return await Pills.Find(x => x.Id == id).FirstOrDefaultAsync();
+    }
+
+    public async Task<IEnumerable<PharmacyDrug>> GetAllPharmacyDrugsAsync()
+    {
+        return await Pills.Find(_ => true).ToListAsync();
+    }
+
+    public async Task UpdatePharmacyDrugAsync(string id, PharmacyDrug pharmacyDrug)
+    {
+        await Pills.ReplaceOneAsync(x => x.Id == id, pharmacyDrug);
+    }
+
+    public async Task<bool> DeletePharmacyDrugAsync(string id)
+    {
+        var result = await Pills.DeleteOneAsync(x => x.Id == id);
+        return result.DeletedCount > 0;
+    }
+
+    public async Task AddImageToPharmacyDrugAsync(string id, byte[] imageBytes)
+    {
+        var filter = Builders<PharmacyDrug>.Filter.Eq("_id", ObjectId.Parse(id));
+        var update = Builders<PharmacyDrug>.Update.Set("Image", imageBytes);
+        await Pills.UpdateOneAsync(filter, update);
+    }
+
+    public async Task<byte[]> GetImageForPharmacyDrugAsync(string id)
+    {
+        var pharmacyDrug = await GetPharmacyDrugAsync(id);
+        return pharmacyDrug?.Image;
     }
 }
