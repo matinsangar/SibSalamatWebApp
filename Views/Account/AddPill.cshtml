@@ -1,0 +1,20 @@
+@model SibSalamat.Models.Pill
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Name">Pill Name</label>
+        <input asp-for="Name" class="form-control" required/>
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Price">Price</label>
+        <input asp-for="Price" class="form-control" required/>
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImageNumber">Image Number</label>
+        <input asp-for="ImageNumber" class="form-control" required/>
+        <span asp-validation-for="ImageNumber" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Pill</button>
+</form>

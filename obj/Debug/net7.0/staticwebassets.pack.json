@@ -5,12 +5,28 @@
       "PackagePath": "staticwebassets/SibSalamat.bundle.scp.css"
     },
     {
+      "Id": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/.DS_Store",
+      "PackagePath": "staticwebassets/.DS_Store"
+    },
+    {
       "Id": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },
     {
       "Id": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/favicon.ico",
       "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/images/1.png",
+      "PackagePath": "staticwebassets/images/1.png"
+    },
+    {
+      "Id": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/images/2.png",
+      "PackagePath": "staticwebassets/images/2.png"
+    },
+    {
+      "Id": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/images/3.png",
+      "PackagePath": "staticwebassets/images/3.png"
     },
     {
       "Id": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/js/site.js",

@@ -1,0 +1,31 @@
+@model List<Pill>
+
+@{
+    ViewData["Title"] = "All Pills";
+}
+
+<h2>All Pills</h2>
+
+<div class="drug-panel">
+    @foreach (var pill in Model)
+    {
+        <div class="drug-item">
+            <h3>@pill.Name</h3>
+            <p>Price: $@pill.Price</p>
+
+            <!-- Use ImageNumber to dynamically generate the image URL -->
+            @if (pill.ImageNumber == 1)
+            {
+                <img src="~/images/1.png" alt="@pill.Name"/>
+            }
+            @if (pill.ImageNumber == 2)
+            {
+                <img src="~/images/2.png" alt="@pill.Name"/>
+            }
+            @if (pill.ImageNumber == 3)
+            {
+                <img src="~/images/3.png" alt="@pill.Name"/>
+            }
+        </div>
+    }
+</div>
