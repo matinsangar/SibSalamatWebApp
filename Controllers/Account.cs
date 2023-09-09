@@ -119,7 +119,7 @@ public class Account : Controller
         if (ModelState.IsValid)
         {
             // Ensure that the ImageNumber is set to a valid value (1, 2, or 3)
-            if (pill.ImageNumber < 1 || pill.ImageNumber > 3)
+            if (pill.ImageNumber < 1 || pill.ImageNumber > 6)
             {
                 ModelState.AddModelError("ImageNumber", "Invalid Image Number");
                 return View(pill);

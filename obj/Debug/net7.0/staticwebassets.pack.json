@@ -29,6 +29,18 @@
       "PackagePath": "staticwebassets/images/3.png"
     },
     {
+      "Id": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/images/4.jpeg",
+      "PackagePath": "staticwebassets/images/4.jpeg"
+    },
+    {
+      "Id": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/images/5.jpeg",
+      "PackagePath": "staticwebassets/images/5.jpeg"
+    },
+    {
+      "Id": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/images/6.jpeg",
+      "PackagePath": "staticwebassets/images/6.jpeg"
+    },
+    {
       "Id": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
     },

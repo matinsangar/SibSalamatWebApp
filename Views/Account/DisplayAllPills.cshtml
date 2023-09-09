@@ -4,30 +4,59 @@
     ViewData["Title"] = "All Pills";
 }
 
-<h2>All Pills</h2>
+<h2 class="text-center mt-4">All Pills</h2>
 
-<div class="drug-panel">
-    @foreach (var pill in Model)
-    {
-        <div class="drug-item">
-            <h3>@pill.Name</h3>
-            <p>Price: $@pill.Price</p>
-            <p>Count: $@pill.AvailableCount</p>
-            <p>Description: $@pill.Description</p>
-            <p>ProviderName: $@pill.Provider</p>
-            <p>PharmacyNumber: $@pill.PharmacyNumber</p>
-            @if (pill.ImageNumber == 1)
-            {
-                <img src="~/images/1.png" alt="@pill.Name"/>
-            }
-            @if (pill.ImageNumber == 2)
-            {
-                <img src="~/images/2.png" alt="@pill.Name"/>
-            }
-            @if (pill.ImageNumber == 3)
-            {
-                <img src="~/images/3.png" alt="@pill.Name"/>
-            }
-        </div>
-    }
+<div class="container mt-4">
+    <div class="row">
+        @foreach (var pill in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    @* <img src="~/images/@pill.ImageNumber.png"  alt="@pill.Name" /> *@
+
+                    @if (pill.ImageNumber == 1)
+                    {
+                        <img src="~/images/1.png" class="card-img-top" alt="@pill.Name"/>
+                    }
+                    @if (pill.ImageNumber == 2)
+                    {
+                        <img src="~/images/2.png" class="card-img-top" alt="@pill.Name"/>
+                    }
+                    @if (pill.ImageNumber == 3)
+                    {
+                        <img src="~/images/3.png" class="card-img-top" alt="@pill.Name"/>
+                    }
+                    @if (pill.ImageNumber == 4)
+                    {
+                        <img src="~/images/4.jpeg" class="card-img-top" alt="@pill.Name"/>
+                    }
+                    @if (pill.ImageNumber == 5)
+                    {
+                        <img src="~/images/5.jpeg" class="card-img-top" alt="@pill.Name"/>
+                    }
+                    @if (pill.ImageNumber == 6)
+                    {
+                        <img src="~/images/6.jpeg" class="card-img-top" alt="@pill.Name"/>
+                    }
+                    <div class="card-body">
+                        <h5 class="card-title">@pill.Name</h5>
+                        <p class="card-text">Price: $@pill.Price</p>
+                        <p class="card-text">Count: @pill.AvailableCount</p>
+                        <p class="card-text">Description: @pill.Description</p>
+                        <p class="card-text">Provider Name: @pill.Provider</p>
+                        <p class="card-text">Pharmacy Number: @pill.PharmacyNumber</p>
+                    </div>
+
+                    <div class="card-footer d-flex justify-content-between">
+                        <button class="btn btn-outline-danger">
+                            <i class="fas fa-heart"></i> Add to Favorites
+                        </button>
+                        <button class="btn btn-outline-success">
+                            <i class="fas fa-shopping-cart"></i> Buy
+                        </button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>

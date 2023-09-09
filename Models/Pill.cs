@@ -14,6 +14,6 @@ public class Pill
     public int? AvailableCount { get; set; } = 0;
 
     //Name and NezamPezeshki   
-    public string Provider;
-    public string PharmacyNumber;
+    public string Provider { get; set; }
+    public string PharmacyNumber { get; set; }
 }
