@@ -12,8 +12,10 @@
         <div class="drug-item">
             <h3>@pill.Name</h3>
             <p>Price: $@pill.Price</p>
-
-            <!-- Use ImageNumber to dynamically generate the image URL -->
+            <p>Count: $@pill.AvailableCount</p>
+            <p>Description: $@pill.Description</p>
+            <p>ProviderName: $@pill.Provider</p>
+            <p>PharmacyNumber: $@pill.PharmacyNumber</p>
             @if (pill.ImageNumber == 1)
             {
                 <img src="~/images/1.png" alt="@pill.Name"/>

@@ -9,11 +9,6 @@
     <link rel="stylesheet" href="~/SibSalamat.styles.css" asp-append-version="true"/>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    @* Gantt default links *@
-    <link rel="stylesheet" href="https://cdn.dhtmlx.com/gantt/7.1.12/skins/dhtmlxgantt_material.css">
-    <script src="https://cdn.dhtmlx.com/gantt/7.1.12/dhtmlxgantt.js"></script>
-
-
 </head>
 <body>
 <header>
@@ -49,12 +44,16 @@
                             <a class="dropdown-item" asp-controller="Account" asp-action="userLogin">ورود</a>
                         </div>
                     </div>
-                    <li class="nav-item" style="margin-left: 10px">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="AddPill">new Pill</a>
-                    </li>
-                    <li class="nav-item" style="margin-left: 10px">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="DisplayAllPills">All Pill</a>
-                    </li>
+                    <div class="dropdown show" style="margin-right: 10px">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            داروخانه انلاین
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" asp-controller="Account" asp-action="AddPill">ثبت دارو جدید</a>
+                            <a class="dropdown-item" asp-controller="Account" asp-action="DisplayAllPills">نمایش داروها</a>
+                        </div>
+                    </div>
                 </ul>
             </div>
         </div>
@@ -68,7 +67,7 @@
 
 <footer class="border-top footer text-muted">
     <div class="container">
-        &copy; 1402 - SibSalamat - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        &copy; 1402 - فارماسیب - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
     </div>
 </footer>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
