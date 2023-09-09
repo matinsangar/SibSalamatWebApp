@@ -135,5 +135,31 @@ ul, ol {
 
 .gradient-corners {
     border-radius: 15px;
-    background: linear-gradient(135deg, #007BFF, #0056b3);
+    background: linear-gradient(135deg, #92aece, #0056b3);
+}
+
+.card {
+    background-color: #fffefe;
+    color: #3a751b;
+    border: none;
+}
+
+.card-img-top {
+    max-height: 200px; 
+    object-fit: contain; /* Scale images */
+    display: block;
+    margin: 0 auto;
+}
+
+.card-title {
+    font-size: 1.25rem;
+}
+
+.card-text {
+    font-size: 1rem;
+}
+
+.btn-outline-danger, .btn-outline-success {
+    color: white;
+    border-color: white;
 }
