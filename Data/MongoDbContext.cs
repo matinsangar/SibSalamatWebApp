@@ -119,4 +119,15 @@ public class MongoDbContext
 
         return false;
     }
+
+    public async Task<double> getUserCredit(string username)
+    {
+        var user = await Users.Find(u => u.Name == username).FirstOrDefaultAsync();
+        if (user != null)
+        {
+            return user.Credit;
+        }
+
+        return 20;
+    }
 }

@@ -17,4 +17,5 @@ public class User
     [Required] [EmailAddress] public string Email { get; set; }
     [Required] [StringLength(4)] public string NationalCode { get; set; } //کدملی
     public List<string>? Favorites { get; set; }
+    public double Credit { get; set; } = 9999; //default credit amount
 }

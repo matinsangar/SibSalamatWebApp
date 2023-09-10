@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SibSalamat.Data;
 using SibSalamat.Models;
 using MongoDB.Driver;
+using SibSalamat.Views.Account;
 
 namespace SibSalamat.Controllers;
 
@@ -96,7 +97,8 @@ public class Account : Controller
             HttpContext.Session.SetString("UserId", user.UserID);
             TempData["UserName"] = user.Name;
             savedName = user.Name;
-            return RedirectToAction("DisplayAllPills", "Account");
+            // return RedirectToAction("DisplayAllPills", "Account");
+            return RedirectToAction("userPanel", "Account");
         }
 
         TempData["ErrorMessage"] = "Invalid username or password.";
@@ -138,18 +140,28 @@ public class Account : Controller
     public async Task<IActionResult> AddToFavorites(string productName, string userName2)
     {
         //savedname is loggedin client username  
-        
-        string userName = TempData["UserName"] as string;
+
         Console.WriteLine($"Adding product '{productName}' to favorites for user '{savedName}'...");
         bool result = await _mongoDbContext.AddToFavAsync(savedName, productName);
 
         if (result)
         {
-            Console.WriteLine($"Product '{productName}' added to favorites for user '{userName}'.");
+            Console.WriteLine($"Product '{productName}' added to favorites for user '{savedName}'.");
             return Json(new { success = true });
         }
 
         Console.WriteLine($"Failed to add product '{productName}' to favorites.");
         return Json(new { success = false, message = "Failed to add product to favorites." });
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> userPanel()
+    {
+        var userCredit = await _mongoDbContext.getUserCredit(savedName);
+        var viewModel = new UserPanelViewModel
+        {
+            Credit = userCredit
+        };
+        return View(viewModel);
     }
 }
