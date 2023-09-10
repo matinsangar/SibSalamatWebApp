@@ -33,13 +33,6 @@ public class MongoDbContext
 
     public IMongoCollection<Pill> Pills => _database.GetCollection<Pill>("Pills");
 
-
-    // public IMongoCollection<Pill> Pills
-    // {
-    //     get { return _database.GetCollection<Pill>("Pills"); }
-    // }
-
-
     public async Task RegisterUserAsync(string name, string password, string email, string national_code)
     {
         var user = new User
@@ -93,8 +86,37 @@ public class MongoDbContext
         await Pills.InsertOneAsync(pill);
     }
 
-    // public async Task<IEnumerable<Pill>> GetAllPillAsync()
-    // {
-    //     return await Pills.Find(_ => true).ToListAsync();
-    // }
+    public async Task<List<string>> GetUserFavAsync(string userID)
+    {
+        var user = await Users.Find(u => u.UserID == userID).FirstOrDefaultAsync();
+        if (user != null && user.Favorites != null)
+        {
+            return user.Favorites;
+        }
+
+        return new List<string>();
+    }
+
+    public async Task<bool> AddToFavAsync(string userName, string productName)
+    {
+        var user = await Users.Find(u => u.Name == userName).FirstOrDefaultAsync();
+        if (user != null)
+        {
+            if (user.Favorites == null)
+            {
+                user.Favorites = new List<string>();
+            }
+
+            if (!user.Favorites.Contains(productName))
+            {
+                user.Favorites.Add(productName);
+
+                //Update mongoDB 
+                var updatedUser = await Users.ReplaceOneAsync(u => u.Name == userName, user);
+                return updatedUser.IsAcknowledged && updatedUser.ModifiedCount > 0;
+            }
+        }
+
+        return false;
+    }
 }

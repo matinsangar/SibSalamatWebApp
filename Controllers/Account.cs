@@ -1,16 +1,8 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SibSalamat.Data;
 using SibSalamat.Models;
-using MongoDB.Bson;
 using MongoDB.Driver;
-using System.Threading.Tasks;
-using System.Drawing;
-using System.Drawing.Imaging;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
-using System;
-using System.IO;
 
 namespace SibSalamat.Controllers;
 
@@ -18,6 +10,7 @@ public class Account : Controller
 {
     private readonly MongoDbContext _mongoDbContext;
     private readonly IWebHostEnvironment _environment;
+    private static string savedName;
 
     public Account(MongoDbContext mongoDbContext, IWebHostEnvironment environment)
     {
@@ -100,7 +93,10 @@ public class Account : Controller
         var isLoginValid = await _mongoDbContext.VerifyUserLogin(user.Name, user.Password, user.NationalCode);
         if (isLoginValid)
         {
-            return RedirectToAction("Index", "Home");
+            HttpContext.Session.SetString("UserId", user.UserID);
+            TempData["UserName"] = user.Name;
+            savedName = user.Name;
+            return RedirectToAction("DisplayAllPills", "Account");
         }
 
         TempData["ErrorMessage"] = "Invalid username or password.";
@@ -118,24 +114,42 @@ public class Account : Controller
     {
         if (ModelState.IsValid)
         {
-            // Ensure that the ImageNumber is set to a valid value (1, 2, or 3)
             if (pill.ImageNumber < 1 || pill.ImageNumber > 6)
             {
                 ModelState.AddModelError("ImageNumber", "Invalid Image Number");
                 return View(pill);
             }
 
-            // Add the pill to the database
             _mongoDbContext.CreatePharmacyDrugAsync(pill);
             return RedirectToAction("Index", "Home");
         }
 
         return View(pill);
     }
+
     [HttpGet]
     public async Task<IActionResult> DisplayAllPills()
     {
         var pills = await _mongoDbContext.Pills.Find(_ => true).ToListAsync();
         return View(pills);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> AddToFavorites(string productName, string userName2)
+    {
+        //savedname is loggedin client username  
+        
+        string userName = TempData["UserName"] as string;
+        Console.WriteLine($"Adding product '{productName}' to favorites for user '{savedName}'...");
+        bool result = await _mongoDbContext.AddToFavAsync(savedName, productName);
+
+        if (result)
+        {
+            Console.WriteLine($"Product '{productName}' added to favorites for user '{userName}'.");
+            return Json(new { success = true });
+        }
+
+        Console.WriteLine($"Failed to add product '{productName}' to favorites.");
+        return Json(new { success = false, message = "Failed to add product to favorites." });
     }
 }
