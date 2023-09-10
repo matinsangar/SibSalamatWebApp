@@ -145,7 +145,7 @@ ul, ol {
 }
 
 .card-img-top {
-    max-height: 200px; 
+    max-height: 200px;
     object-fit: contain; /* Scale images */
     display: block;
     margin: 0 auto;
@@ -162,4 +162,13 @@ ul, ol {
 .btn-outline-danger, .btn-outline-success {
     color: white;
     border-color: white;
+}
+
+.content {
+    width: 20%;
+    text-align: center;
+}
+
+.italic {
+    font-style: italic;
 }
