@@ -41,6 +41,10 @@
       "PackagePath": "staticwebassets/images/6.jpeg"
     },
     {
+      "Id": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/js/Favorites.js",
+      "PackagePath": "staticwebassets/js/Favorites.js"
+    },
+    {
       "Id": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
     },

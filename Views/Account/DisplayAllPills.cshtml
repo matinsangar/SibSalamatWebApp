@@ -1,3 +1,4 @@
+@* @page "/DisplayAllPills" *@
 @model List<Pill>
 
 @{
@@ -10,10 +11,10 @@
     <div class="row">
         @foreach (var pill in Model)
         {
+            <input type="hidden" id="userId" value="@User.Identity.Name" />
+
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    @* <img src="~/images/@pill.ImageNumber.png"  alt="@pill.Name" /> *@
-
                     @if (pill.ImageNumber == 1)
                     {
                         <img src="~/images/1.png" class="card-img-top" alt="@pill.Name"/>
@@ -48,7 +49,9 @@
                     </div>
 
                     <div class="card-footer d-flex justify-content-between">
-                        <button class="btn btn-outline-danger">
+                        <button class="btn btn-outline-danger add-to-favorites"
+                                onclick="addToFavorites('@pill.Name', '@User.Identity.Name')"
+                                data-product="@pill.Name">
                             <i class="fas fa-heart"></i> Add to Favorites
                         </button>
                         <button class="btn btn-outline-success">
@@ -60,3 +63,24 @@
         }
     </div>
 </div>
+<script>
+    function addToFavorites(productName, userName) {
+            console.log("Adding product to favorites...");
+        $.ajax({
+            type: "POST",
+            url: "/Account/AddToFavorites",
+            data: { productName: productName, userName: userName }, 
+            dataType: "json",
+            success: function (result) {
+                if (result.success) {
+                    alert("Product added to favorites!");
+                } else {
+                    alert("Failed to add product to favorites.");
+                }
+            },
+            error: function () {
+                alert("An error occurred while adding the product to favorites.");
+            }
+        });
+    }
+</script>

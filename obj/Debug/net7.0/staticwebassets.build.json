@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OuzvxV9ZHBI+EqA05i0zzVRgbI4WS8U6LI0FN2Ae5zg=",
+  "Hash": "ZT3pzsn5H+7AjgljP/oAqTt2YWwdJH+kiPjft36AJoI=",
   "Source": "SibSalamat",
   "BasePath": "_content/SibSalamat",
   "Mode": "Default",
@@ -202,6 +202,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/images/6.jpeg"
+    },
+    {
+      "Identity": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/js/Favorites.js",
+      "SourceId": "SibSalamat",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/",
+      "BasePath": "_content/SibSalamat",
+      "RelativePath": "js/Favorites.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/Favorites.js"
     },
     {
       "Identity": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/js/site.js",
