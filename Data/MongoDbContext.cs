@@ -130,4 +130,10 @@ public class MongoDbContext
 
         return 20;
     }
+
+    public async Task<Pill> getPillInfo(string name)
+    {
+        var pill = await Pills.Find(p => p.Name == name).FirstOrDefaultAsync();
+        return pill;
+    }
 }

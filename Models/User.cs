@@ -18,4 +18,6 @@ public class User
     [Required] [StringLength(4)] public string NationalCode { get; set; } //کدملی
     public List<string>? Favorites { get; set; }
     public double Credit { get; set; } = 9999; //default credit amount
+
+    public List<Sell> BuyRoller { get; set; } = new List<Sell>();
 }

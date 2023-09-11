@@ -11,7 +11,7 @@
     <div class="row">
         @foreach (var pill in Model)
         {
-            <input type="hidden" id="userId" value="@User.Identity.Name" />
+            <input type="hidden" id="userId" value="@User.Identity.Name"/>
 
             <div class="col-md-4 mb-4">
                 <div class="card">
@@ -54,9 +54,12 @@
                                 data-product="@pill.Name">
                             <i class="fas fa-heart"></i> Add to Favorites
                         </button>
-                        <button class="btn btn-outline-success">
-                            <i class="fas fa-shopping-cart"></i> Buy
-                        </button>
+                        <input type="number" id="pillCount" class="form-control" placeholder="Enter Count"/>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-success" onclick="buyPill('@pill.Name', '@pill.Price')">
+                                <i class="fas fa-shopping-cart"></i> Buy
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -83,4 +86,27 @@
             }
         });
     }
+     function buyPill(productName, productPrice) {
+            var userName = $('#userId').val();
+            var count = $('#pillCount').val();
+    
+            console.log("Buying product...");
+            $.ajax({
+                type: "POST",
+                url: "/Account/BuyPill",
+                data: { productName: productName, userName: userName, count: count, productPrice: productPrice },
+                dataType: "json",
+                success: function (result) {
+                    if (result.success) {
+                        alert("Product added to cart!");
+                    } else {
+                        alert("Failed to add product to cart.");
+                    }
+                },
+                error: function () {
+                    alert("An error occurred while adding the product to cart.");
+                }
+            });
+        }
+    
 </script>
