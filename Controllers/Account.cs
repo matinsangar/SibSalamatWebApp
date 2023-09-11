@@ -164,4 +164,21 @@ public class Account : Controller
         };
         return View(viewModel);
     }
+
+    [HttpPost]
+    public async Task<IActionResult> BuyPill(string productName, string userName, int count, decimal productPrice)
+    {
+        var user = await _mongoDbContext.getUserByName(savedName);
+        var pill = await _mongoDbContext.getPillInfo(productName);
+
+        if (user != null && pill != null)
+        {
+            var sell = new Sell(productName, pill.Price, count, pill.Provider, true, user.Name);
+            user.BuyRoller.Add(sell);
+            await _mongoDbContext.UpdateUser(user);
+            return Json(new { success = true });
+        }
+
+        return Json(new { success = false, message = "User not found." });
+    }
 }

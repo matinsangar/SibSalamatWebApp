@@ -136,4 +136,30 @@ public class MongoDbContext
         var pill = await Pills.Find(p => p.Name == name).FirstOrDefaultAsync();
         return pill;
     }
+
+    public async Task<User> getUserByName(string name)
+    {
+        var user = await Users.Find(u => u.Name == name).FirstOrDefaultAsync();
+        return user;
+    }
+
+    public async Task<bool> UpdateUser(User user)
+    {
+        try
+        {
+            var result = await Users.ReplaceOneAsync(x => x.Name == user.Name, user);
+
+            if (result.IsAcknowledged && result.ModifiedCount > 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error updating user: {ex.Message}");
+            return false;
+        }
+    }
 }
