@@ -54,9 +54,10 @@
                                 data-product="@pill.Name">
                             <i class="fas fa-heart"></i> Add to Favorites
                         </button>
-                        <input type="number" id="pillCount" class="form-control" placeholder="Enter Count"/>
+
+                        <input type="number" class="form-control btn btn-outline-danger btn-secondary count-input" placeholder="Enter Count"/>
                         <div class="input-group-append">
-                            <button class="btn btn-outline-success" onclick="buyPill('@pill.Name', '@pill.Price')">
+                            <button class="btn btn-outline-success" onclick="buyPill(this,'@pill.Name', '@pill.Price')">
                                 <i class="fas fa-shopping-cart"></i> Buy
                             </button>
                         </div>
@@ -86,11 +87,13 @@
             }
         });
     }
-     function buyPill(productName, productPrice) {
-            var userName = $('#userId').val();
-            var count = $('#pillCount').val();
-    
+     function buyPill(button,productName, productPrice) {
+
+             var userName = $(button).closest('.card').find('.user-id').val();
+             var count = $(button).closest('.card').find('.count-input').val();
             console.log("Buying product...");
+               console.log("Count value: " + count);
+
             $.ajax({
                 type: "POST",
                 url: "/Account/BuyPill",
