@@ -17,10 +17,14 @@
         <input type="email" asp-for="Email" class="form-control" id="inputEmail" placeholder="ایمیل"/>
     </div>
     <div class="form-group">
+        <label asp-for="City">شهر</label>
+        <input asp-for="City" id="NationalCode" class="form-control" placeholder="شهر"/>
+    </div>
+
+    <div class="form-group">
         <label asp-for="NationalCode">کدملی</label>
         <input asp-for="NationalCode" id="NationalCode" class="form-control" placeholder="کدملی"/>
     </div>
-
-
+    
     <button type="submit" class="btn btn-primary " style="padding-top: 15px; margin-top: 20px">ثبت نام</button>
 </form>

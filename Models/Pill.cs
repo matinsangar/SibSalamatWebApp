@@ -16,4 +16,6 @@ public class Pill
     //Name and NezamPezeshki   
     public string Provider { get; set; }
     public string PharmacyNumber { get; set; }
+
+    public string PharmacyCity { get; set; } = "NoWhere";
 }

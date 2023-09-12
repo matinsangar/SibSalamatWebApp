@@ -44,7 +44,8 @@ public class Account : Controller
     {
         if (ModelState.IsValid)
         {
-            await _mongoDbContext.RegisterAdminAsync(admin.Name, admin.Password, admin.Email, admin.NezamPezeshki);
+            await _mongoDbContext.RegisterAdminAsync(admin.Name, admin.Password, admin.Email, admin.NezamPezeshki,
+                admin.City);
             return RedirectToAction("Login");
         }
 
@@ -67,7 +68,7 @@ public class Account : Controller
     {
         if (ModelState.IsValid)
         {
-            await _mongoDbContext.RegisterUserAsync(user.Name, user.Password, user.Email, user.NationalCode);
+            await _mongoDbContext.RegisterUserAsync(user.Name, user.Password, user.Email, user.NationalCode, user.City);
             return RedirectToAction("userLogin");
         }
 
@@ -94,10 +95,7 @@ public class Account : Controller
         var isLoginValid = await _mongoDbContext.VerifyUserLogin(user.Name, user.Password, user.NationalCode);
         if (isLoginValid)
         {
-            HttpContext.Session.SetString("UserId", user.UserID);
-            TempData["UserName"] = user.Name;
             savedName = user.Name;
-            // return RedirectToAction("DisplayAllPills", "Account");
             return RedirectToAction("userPanel", "Account");
         }
 

@@ -24,4 +24,8 @@ public class Admin
 
     [Required(ErrorMessage = "نظام پزشکی الزامی است.")]
     public string NezamPezeshki { get; set; }
+
+    [Required(ErrorMessage = "نام شهر الزامی است.")]
+
+    public string City { get; set; }
 }

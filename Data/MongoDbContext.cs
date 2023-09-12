@@ -4,9 +4,6 @@ using MongoDB.Bson;
 using SibSalamat.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Drawing;
-using System.Drawing.Imaging;
-
 
 namespace SibSalamat.Data;
 
@@ -33,7 +30,7 @@ public class MongoDbContext
 
     public IMongoCollection<Pill> Pills => _database.GetCollection<Pill>("Pills");
 
-    public async Task RegisterUserAsync(string name, string password, string email, string national_code)
+    public async Task RegisterUserAsync(string name, string password, string email, string nationalCode, string city)
     {
         var user = new User
         {
@@ -41,20 +38,22 @@ public class MongoDbContext
             Name = name,
             Password = password,
             Email = email,
-            NationalCode = national_code
+            NationalCode = nationalCode,
+            City = city
         };
         await Users.InsertOneAsync(user);
     }
 
-    public async Task RegisterAdminAsync(string Name, string Password, string Email, string NezamPezeshki)
+    public async Task RegisterAdminAsync(string name, string password, string email, string nezamPezeshki, string city)
     {
         var admin = new Admin
         {
             ID = ObjectId.GenerateNewId().ToString(),
-            Name = Name,
-            Password = Password,
-            Email = Email,
-            NezamPezeshki = NezamPezeshki
+            Name = name,
+            Password = password,
+            Email = email,
+            NezamPezeshki = nezamPezeshki,
+            City = city
         };
         await Admins.InsertOneAsync(admin);
     }
