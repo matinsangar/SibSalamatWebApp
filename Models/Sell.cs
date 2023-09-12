@@ -1,3 +1,5 @@
+using MongoDB.Bson;
+
 namespace SibSalamat.Models;
 
 public class Sell
@@ -12,6 +14,7 @@ public class Sell
         UserName = userName;
     }
 
+    public ObjectId Id { get; set; }
     public string ProductName { get; set; }
     public decimal Price { get; set; }
     public int Count { get; set; } = 0;

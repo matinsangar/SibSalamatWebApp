@@ -181,10 +181,10 @@ public class Account : Controller
         return Json(new { success = false, message = "User not found." });
     }
 
-    [HttpGet]
     public async Task<IActionResult> Payment()
     {
         var userSaleHistory = await _mongoDbContext.getSellInfoByUserName(savedName);
+        Console.WriteLine($"userHistory is :  {userSaleHistory}");
         var model = new PaymentViewModel()
         {
             SalesHistory = userSaleHistory,
