@@ -28,6 +28,11 @@ public class MongoDbContext
         get { return _database.GetCollection<User>("Users"); }
     }
 
+    public IMongoCollection<Sell> SellsHistrory
+    {
+        get { return _database.GetCollection<Sell>("SellsHistrory"); }
+    }
+
     public IMongoCollection<Pill> Pills => _database.GetCollection<Pill>("Pills");
 
     public async Task RegisterUserAsync(string name, string password, string email, string nationalCode, string city)
@@ -160,5 +165,11 @@ public class MongoDbContext
             Console.WriteLine($"Error updating user: {ex.Message}");
             return false;
         }
+    }
+
+    public async Task<List<Sell>> getSellInfoByUserName(string userName)
+    {
+        var sell = await SellsHistrory.Find(s => s.UserName == userName).ToListAsync();
+        return sell;
     }
 }

@@ -172,11 +172,24 @@ public class Account : Controller
         if (user != null && pill != null)
         {
             var sell = new Sell(productName, pill.Price, count, pill.Provider, true, user.Name);
+            await _mongoDbContext.SellsHistrory.InsertOneAsync(sell);
             user.BuyRoller.Add(sell);
             await _mongoDbContext.UpdateUser(user);
             return Json(new { success = true });
         }
 
         return Json(new { success = false, message = "User not found." });
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Payment()
+    {
+        var userSaleHistory = await _mongoDbContext.getSellInfoByUserName(savedName);
+        var model = new PaymentViewModel()
+        {
+            SalesHistory = userSaleHistory,
+            UserName = savedName
+        };
+        return View(model);
     }
 }
