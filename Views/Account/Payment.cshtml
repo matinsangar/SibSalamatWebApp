@@ -10,12 +10,12 @@
     <table class="table table-bordered table-responsive green-table">
         <thead>
         <tr>
-            <th>Product Name</th>
-            <th>Price</th>
-            <th>Count</th>
-            <th>Provider</th>
-            <th>isValid</th>
-            <th>Date</th>
+            <th>نام دارو</th>
+            <th>داروخانه</th>
+            <th>تعداد</th>
+            <th>قیمت هر واحد</th>
+            <th>تاییدشده</th>
+            <th>تاریخ</th>
         </tr>
         </thead>
         <tbody>
@@ -23,13 +23,16 @@
         {
             <tr>
                 <td>@sell.ProductName</td>
-                <td>@sell.Price</td>
-                <td>@sell.Count</td>
                 <td>@sell.PharmacyName</td>
+                <td>@sell.Count</td>
+                <td>@sell.Price</td>
                 <td>@sell.IsValid</td>
                 <td>@sell.DateTime</td>
             </tr>
         }
         </tbody>
     </table>
+    <div class="text-center mt-4">
+        <p class="total-fee"> $@Model.SalesHistory.Sum(s => s.Price * s.Count) مجموع صورت حساب :</p>
+    </div>
 </div>
