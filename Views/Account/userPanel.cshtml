@@ -1,3 +1,4 @@
+@using SibSalamat.Controllers
 @model SibSalamat.Views.Account.UserPanelViewModel
 
 @{
@@ -7,18 +8,17 @@
 <div class="centered-container">
     <div class="content">
         <h2>حساب کاربری شما</h2>
-        <p class="italic">Credit is: @Model.Credit</p>
 
-        @Html.ActionLink("خرید دارو",
-            "DisplayAllPills",
-            "Account",
-            null,
-            new { @class = "btn btn-primary" })
-
-        @Html.ActionLink("صورت حساب",
-            "Payment",
-            null,
-            new { @class = "btn btn-primary" })
-        )
+        <div class="row">
+            <div class="col-md-4">
+                <a href="@Url.Action("DisplayAllPills", "Account")" class="btn btn-pink btn-block">خرید دارو</a>
+            </div>
+            <div class="col-md-4">
+                <a href="@Url.Action("Payment", "Account")" class="btn btn-blue btn-block">صورت حساب</a>
+            </div>
+            <div class="col-md-4">
+                <p class="credit-text">Credit: @Model.Credit</p>
+            </div>
+        </div>
     </div>
 </div>

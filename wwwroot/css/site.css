@@ -172,3 +172,33 @@ ul, ol {
 .italic {
     font-style: italic;
 }
+
+/*userPanel*/
+.btn-pink {
+    background-color: pink;
+    color: white;
+}
+
+.btn-blue {
+    background-color: blue;
+    color: white;
+}
+
+.credit-text {
+    background-color: green;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/*userPanel*/
+
+th {
+    font-weight: bold;
+}
+
+.green-table {
+    background-color: rgba(119, 182, 88, 0.94);
+    color: white;
+}
