@@ -216,4 +216,11 @@ public class Account : Controller
         var viewModel = new PaymentSuccessViewModel(totalAmountPaid);
         return View(viewModel);
     }
+
+    public IActionResult userLogOut()
+    {
+        savedName = null;
+        savedTotalAmount = double.NaN;
+        return RedirectToAction("index", "Home");
+    }
 }
