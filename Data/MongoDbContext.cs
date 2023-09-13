@@ -211,7 +211,6 @@ public class MongoDbContext
             var result = await Users.ReplaceOneAsync(u => u.Name == userName, new_user);
             if (result.IsAcknowledged && result.ModifiedCount > 0)
             {
-                Console.WriteLine($"User Credit updated from {user.Credit} to {new_user.Credit} ");
                 return true;
             }
 

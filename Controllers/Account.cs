@@ -174,6 +174,7 @@ public class Account : Controller
         {
             var sell = new Sell(productName, pill.Price, count, pill.Provider, true, user.Name);
             await _mongoDbContext.SellsHistrory.InsertOneAsync(sell);
+            await _mongoDbContext.UpdatePillCount(productName, count);
             user.BuyRoller.Add(sell);
             await _mongoDbContext.UpdateUser(user);
             return Json(new { success = true });
@@ -185,7 +186,6 @@ public class Account : Controller
     public async Task<IActionResult> Payment()
     {
         var userSaleHistory = await _mongoDbContext.getSellInfoByUserName(savedName);
-        Console.WriteLine($"userHistory is :  {userSaleHistory}");
         var model = new PaymentViewModel()
         {
             SalesHistory = userSaleHistory,
