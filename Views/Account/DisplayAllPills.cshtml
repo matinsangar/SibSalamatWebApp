@@ -42,7 +42,7 @@
                     <div class="card-body">
                         <h5 class="card-title">@pill.Name</h5>
                         <p class="card-text">Price: $@pill.Price</p>
-                        <p class="card-text">Count: @pill.AvailableCount</p>
+                        <p class="card-text">Count: <span class="available-count">@pill.AvailableCount</span></p>
                         <p class="card-text">Description: @pill.Description</p>
                         <p class="card-text">Provider Name: @pill.Provider</p>
                         <p class="card-text">City: @pill.PharmacyCity</p>
@@ -92,9 +92,17 @@
 
              var userName = $(button).closest('.card').find('.user-id').val();
              var count = $(button).closest('.card').find('.count-input').val();
-            console.log("Buying product...");
-               console.log("Count value: " + count);
+             var countInt = parseInt(count);
+             var availableCount = parseInt($(button).closest('.card').find('.available-count').text().trim());
 
+               if (isNaN(countInt) || countInt <= 0 || countInt > availableCount) {
+                    alert("Please enter a valid count within the available limit.");
+                    return; // if count is invalid or exceeds available count
+               }
+
+            console.log("Buying product...");
+            console.log("Count value: " + count);
+            console.log("AVB count is : " + availableCount);
             $.ajax({
                 type: "POST",
                 url: "/Account/BuyPill",
