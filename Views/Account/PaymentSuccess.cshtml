@@ -1,0 +1,25 @@
+
+@model SibSalamat.Views.Account.PaymentSuccessViewModel
+@{
+    ViewData["Title"] = "Payment Successful";
+}
+
+<h2 class="text-center mt-4">Payment Successful</h2>
+
+<div class="container mt-4">
+    <div class="alert alert-success">
+        <strong>Congratulations!</strong> Your payment has been processed successfully.
+    </div>
+
+    <div class="text-center mt-4">
+        <p class="total-fee">Total Amount Paid: $@Model.TotalAmount</p>
+    </div>
+
+    <div class="text-center mt-4">
+        <p>Your payment receipt and order confirmation have been sent to your email address.</p>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="/" class="btn btn-primary">Back to Home</a>
+    </div>
+</div>
