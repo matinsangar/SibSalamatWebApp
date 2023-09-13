@@ -18,8 +18,12 @@ html {
 }
 
 body {
-    background-color: #181818;
-    color: #fff;
+    /*background-color: #181818;*/
+    /*color: #fff;*/
+    background-image: url("bg1.jpeg");
+    background-size: cover; /* Adjust the image size to cover the entire body */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    background-attachment: fixed;
     margin-bottom: 60px;
 }
 

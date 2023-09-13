@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets/.DS_Store"
     },
     {
+      "Id": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/css/bg1.jpeg",
+      "PackagePath": "staticwebassets/css/bg1.jpeg"
+    },
+    {
       "Id": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },

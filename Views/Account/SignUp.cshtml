@@ -3,32 +3,55 @@
     ViewData["Title"] = "SignUp";
     var errorMessage = TempData["ErrorMessage"] as string;
 }
+<style>
+    /* Style for the centered dark background */
+    .centered-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* 100% viewport height */
+        background-color: rgba(0, 0, 0, 0.7); /* Dark background with transparency */
+    }
 
-@if (!string.IsNullOrEmpty(errorMessage))
-{
-    <div class="alert alert-danger">@errorMessage</div>
-}
-<h2>SignUp Section</h2>
-<form method="post">
-    <div class="form-group">
-        <label asp-for="Name">نام کاربری</label>
-        <input type="text" asp-for="Name" class="form-control" id="inputUsername" placeholder="نام کاربری"/>
+    /* Style for the form container */
+    .form-container {
+        background-color: #fff; /* White background for the form */
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        width: 350px; /* Adjust the width as needed */
+        text-align: center;
+    }
+</style>
+
+<div class="centered-container">
+    <div class="form-container">
+        @if (!string.IsNullOrEmpty(errorMessage))
+        {
+            <div class="alert alert-danger">@errorMessage</div>
+        }
+        <h2>SignUp Section</h2>
+        <form method="post"/>
+        <div class="form-group">
+            <label asp-for="Name">نام کاربری</label>
+            <input type="text" asp-for="Name" class="form-control" id="inputUsername" placeholder="نام کاربری"/>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password">رمز عبور</label>
+            <input type="password" asp-for="Password" class="form-control" id="inputPassword" placeholder="رمز عبور"/>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email">ایمیل</label>
+            <input type="email" asp-for="Email" class="form-control" id="inputEmail" placeholder="ایمیل"/>
+        </div>
+        <div class="form-group">
+            <label asp-for="NezamPezeshki">نظام پزشکی</label>
+            <input asp-for="NezamPezeshki" class="form-control" id="NezamPezeshki" placeholder="نظام پزشکی"/>
+        </div>
+        <div class="form-group">
+            <label asp-for="City">شهر</label>
+            <input asp-for="City" class="form-control" id="City" placeholder="شهر"/>
+        </div>
+        <button type="submit" class="btn btn-primary" style="padding-top: 15px; margin-top: 20px">ثبت نام</button>
     </div>
-    <div class="form-group">
-        <label asp-for="Password">رمز عبور</label>
-        <input type="password" asp-for="Password" class="form-control" id="inputPassword" placeholder="رمز عبور"/>
-    </div>
-    <div class="form-group">
-        <label asp-for="Email">ایمیل</label>
-        <input type="email" asp-for="Email" class="form-control" id="inputEmail" placeholder="ایمیل"/>
-    </div>
-    <div class="form-group">
-        <label asp-for="NezamPezeshki">نظام پزشکی</label>
-        <input asp-for="NezamPezeshki" class="form-control" id="NezamPezeshki" placeholder="نظام پزشکی"/>
-    </div>
-    <div class="form-group">
-        <label asp-for="City">شهر</label>
-        <input asp-for="City" class="form-control" id="City" placeholder="شهر"/>
-    </div>
-    <button type="submit" class="btn btn-primary" style="padding-top: 15px; margin-top: 20px">ثبت نام</button>
-</form>
+</div>
