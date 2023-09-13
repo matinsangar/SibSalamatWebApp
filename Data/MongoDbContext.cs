@@ -172,4 +172,55 @@ public class MongoDbContext
         var sell = await SellsHistrory.Find(s => s.UserName == userName).ToListAsync();
         return sell;
     }
+
+    public async Task<bool> UpdatePillCount(string name, int count)
+    {
+        try
+        {
+            var pill = await Pills.Find(p => p.Name == name).FirstOrDefaultAsync();
+            var new_pill = pill;
+            new_pill.AvailableCount -= count;
+            var result = await Pills.ReplaceOneAsync(p => p.Name == name, new_pill);
+            if (result.IsAcknowledged && result.ModifiedCount > 0)
+            {
+                Console.WriteLine($"Pill count updated from {pill.AvailableCount} to {new_pill.AvailableCount} ");
+                return true;
+            }
+
+            return false;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Error Updating pill count: {e} ");
+            return false;
+        }
+    }
+
+    public async Task<bool> UpdateUserCredit(string userName, double amount)
+    {
+        try
+        {
+            var user = await Users.Find(u => u.Name == userName).FirstOrDefaultAsync();
+            var new_user = user;
+            if (amount > new_user.Credit)
+            {
+                throw new Exception("Not enough credit");
+            }
+
+            new_user.Credit -= amount;
+            var result = await Users.ReplaceOneAsync(u => u.Name == userName, new_user);
+            if (result.IsAcknowledged && result.ModifiedCount > 0)
+            {
+                Console.WriteLine($"User Credit updated from {user.Credit} to {new_user.Credit} ");
+                return true;
+            }
+
+            return false;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Error Updating user credit: {e} ");
+            return false;
+        }
+    }
 }

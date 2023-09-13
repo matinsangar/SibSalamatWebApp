@@ -35,4 +35,31 @@
     <div class="text-center mt-4">
         <p class="total-fee"> $@Model.SalesHistory.Sum(s => s.Price * s.Count) مجموع صورت حساب :</p>
     </div>
+    <button class="btn btn-primary" id="pay-button">پرداخت</button>
+    <input type="hidden" id="total-amount" value="@Model.SalesHistory.Sum(s => s.Price * s.Count)"/> @*hidden for ajax requests *@
+
 </div>
+<script>
+    $(document).ready(function () {
+        $("#pay-button").click(function () {
+            var totalAmount = parseFloat($("#total-amount").val());
+
+            $.ajax({
+                type: "POST",
+                url: "/Account/DeductUserCredit", 
+                data: { totalAmount: totalAmount },
+                dataType: "json",
+                success: function (result) {
+                    if (result.success) {
+                        window.location.href = result.redirectUrl;
+                    } else {
+                        alert("Payment failed. Please try again.");
+                    }
+                },
+                error: function () {
+                    alert("An error occurred during payment processing.");
+                }
+            });
+        });
+    });
+</script>

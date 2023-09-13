@@ -12,6 +12,7 @@ public class Account : Controller
     private readonly MongoDbContext _mongoDbContext;
     private readonly IWebHostEnvironment _environment;
     private static string savedName;
+    private static double savedTotalAmount;
 
     public Account(MongoDbContext mongoDbContext, IWebHostEnvironment environment)
     {
@@ -164,7 +165,7 @@ public class Account : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> BuyPill(string productName, string userName, int count, decimal productPrice)
+    public async Task<IActionResult> BuyPill(string productName, string userName, int count, double productPrice)
     {
         var user = await _mongoDbContext.getUserByName(savedName);
         var pill = await _mongoDbContext.getPillInfo(productName);
@@ -191,5 +192,28 @@ public class Account : Controller
             UserName = savedName
         };
         return View(model);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> DeductUserCredit(double totalAmount)
+    {
+        try
+        {
+            savedTotalAmount = totalAmount;
+            await _mongoDbContext.UpdateUserCredit(savedName, totalAmount);
+            return Json(new { success = true, redirectUrl = Url.Action("PaymentSuccess") });
+        }
+        catch (Exception exp)
+        {
+            Console.WriteLine($"Error while Deducting: {exp.Message}");
+            return Json(new { success = false, errorMessage = exp.Message });
+        }
+    }
+
+    public IActionResult PaymentSuccess()
+    {
+        double totalAmountPaid = savedTotalAmount;
+        var viewModel = new PaymentSuccessViewModel(totalAmountPaid);
+        return View(viewModel);
     }
 }

@@ -4,7 +4,7 @@ namespace SibSalamat.Models;
 
 public class Sell
 {
-    public Sell(string productName, decimal price, int count, string pharmacyName, bool isValid, string userName)
+    public Sell(string productName, double price, int count, string pharmacyName, bool isValid, string userName)
     {
         ProductName = productName;
         Price = price;
@@ -16,7 +16,7 @@ public class Sell
 
     public ObjectId Id { get; set; }
     public string ProductName { get; set; }
-    public decimal Price { get; set; }
+    public double Price { get; set; }
     public int Count { get; set; } = 0;
     public string PharmacyName { get; set; }
     public bool IsValid { get; set; } = false;
