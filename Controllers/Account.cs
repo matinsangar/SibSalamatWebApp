@@ -10,14 +10,12 @@ namespace SibSalamat.Controllers;
 public class Account : Controller
 {
     private readonly MongoDbContext _mongoDbContext;
-    private readonly IWebHostEnvironment _environment;
     private static string savedName;
     private static double savedTotalAmount;
 
     public Account(MongoDbContext mongoDbContext, IWebHostEnvironment environment)
     {
         _mongoDbContext = mongoDbContext;
-        _environment = environment;
     }
 
     public IActionResult SignUp()

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Lf+NeFelEqbUNCp08tyYQEawx2FgE+eMT0AzQ4syUbs=",
+  "Hash": "YEXliS88RmZBjzwzyAgNoeYZypmHebyzKJyuegp0Zn4=",
   "Source": "SibSalamat",
   "BasePath": "_content/SibSalamat",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/.DS_Store"
+    },
+    {
+      "Identity": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/css/AboutUs.css",
+      "SourceId": "SibSalamat",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/",
+      "BasePath": "_content/SibSalamat",
+      "RelativePath": "css/AboutUs.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/AboutUs.css"
     },
     {
       "Identity": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/css/bg1.jpeg",

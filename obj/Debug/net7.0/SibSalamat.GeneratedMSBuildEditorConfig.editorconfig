@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/macbookair/SibSalamat/SibSalamat
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/macbookair/SibSalamat/SibSalamat/Views/AboutUs/AboutUs.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWJvdXRVcy9BYm91dFVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/macbookair/SibSalamat/SibSalamat/Views/Account/AddPill.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQWNjb3VudC9BZGRQaWxsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
