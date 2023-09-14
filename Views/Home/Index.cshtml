@@ -8,29 +8,26 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>صفحه اصلی</title>
+    <link rel="stylesheet" href="css/Home.css"/>
 </head>
 <body>
 <header>
     <h1>داروخانه آنلاین شما</h1>
 </header>
-<section>
-    <div class="search-bar gradient-corners">
-        <input type="text" class="search-input" placeholder="جستجو دارو..."/>
-        <button class="search-button">جستجو </button>
-    </div>
-</section>
-
 
 <nav>
     <ul>
         <li>
-            <a href="#">خانه</a>
+            <a asp-controller="Home" asp-action="Index" class="newBtn">خانه</a>
         </li>
         <li>
-            <a href="#">داروخانه</a>
+            <a asp-controller="Account" asp-action="Login" class="newBtn">داروخانه</a>
         </li>
         <li>
-            <a href="#">مشتری</a>
+            <a asp-controller="Account" asp-action="userLogin" class="newBtn">مشتری</a>
+        </li>
+        <li>
+            <a href="#" class="newBtn">درباره ما</a>
         </li>
     </ul>
 </nav>

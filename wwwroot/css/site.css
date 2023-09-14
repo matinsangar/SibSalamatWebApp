@@ -225,3 +225,10 @@ th {
 label {
     color: white;
 }
+
+.click-btn{
+    background-color: #92aece;
+    width: 100%; 
+    border-radius: 5px; 
+    padding: 10px; 
+}

@@ -1,0 +1,64 @@
+a {
+    color: #1a1e21;
+}
+
+body {
+    background-image: url("empty.png");
+}
+
+header {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.47);
+    padding: 20px;
+}
+
+nav {
+    color: rgba(255, 255, 255, 0.45);
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+section {
+    text-align: center;
+    margin: 20px;
+}
+
+footer {
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+p {
+    font-weight: bold;
+    color: #1a1e21;
+}
+
+h2, h1 {
+    color: #1a1e21;
+}
+
+.newBtn {
+    text-decoration: none;
+    padding: 10px 20px; /* Adjust the padding as needed */
+    border: 1px solid #007bff; /* Add a border */
+    border-radius: 5px; /* Add rounded corners */
+    background-color: rgba(0, 0, 0, 0.2); /* Add a background with blur effect */
+    color: white;
+    transition: all 0.3s ease; /* Add a smooth transition effect */
+}
+
+.newBtn:hover {
+    background-color: rgba(0, 0, 0, 0.5); /* Darker background on hover */
+    transform: scale(1.1); /* Add a slight scale effect on hover */
+}
