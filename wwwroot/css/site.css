@@ -18,11 +18,9 @@ html {
 }
 
 body {
-    /*background-color: #181818;*/
-    /*color: #fff;*/
-    background-image: url("bg1.jpeg");
-    background-size: cover; /* Adjust the image size to cover the entire body */
-    background-repeat: no-repeat; /* Prevent image repetition */
+    background-image: url("Copy-of-PFSP-Oncology-LDDs-4.png");
+    background-size: cover;
+    background-repeat: no-repeat; 
     background-attachment: fixed;
     margin-bottom: 60px;
 }

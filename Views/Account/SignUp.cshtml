@@ -1,28 +1,25 @@
 @model SibSalamat.Models.Admin
 @{
-    ViewData["Title"] = "SignUp";
+    ViewData["Title"] = "ثبت نام داروخانه";
     var errorMessage = TempData["ErrorMessage"] as string;
 }
 <style>
-    /* Style for the centered dark background */
-    .centered-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh; /* 100% viewport height */
-        background-color: rgba(0, 0, 0, 0.7); /* Dark background with transparency */
-    }
-
-    /* Style for the form container */
-    .form-container {
-        background-color: #fff; /* White background for the form */
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-        width: 350px; /* Adjust the width as needed */
-        text-align: center;
-    }
-</style>
+      .centered-container {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             height: 100vh;
+         }
+         .form-container {
+             background-color: rgb(0 0 0 / 66%); 
+             border-radius: 15px;
+             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+             width: 346px;
+             text-align: center;
+             padding: 20px 20px 40px;
+             margin-top: -45px;
+         }
+ </style>
 
 <div class="centered-container">
     <div class="form-container">
@@ -30,7 +27,7 @@
         {
             <div class="alert alert-danger">@errorMessage</div>
         }
-        <h2>SignUp Section</h2>
+        <h2>ثبت نام</h2>
         <form method="post"/>
         <div class="form-group">
             <label asp-for="Name">نام کاربری</label>
