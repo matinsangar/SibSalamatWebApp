@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kHC72745NUUOAKKAXEklm6DayM9LuFAG6fjFCiJH5q8=",
+  "Hash": "TvYLEODnOqM/1CKl3K4iFdIPd93KrEP2T2gsRJkAPcs=",
   "Source": "SibSalamat",
   "BasePath": "_content/SibSalamat",
   "Mode": "Default",
@@ -68,6 +68,23 @@
       "OriginalItemSpec": "wwwroot/.DS_Store"
     },
     {
+      "Identity": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/css/.DS_Store",
+      "SourceId": "SibSalamat",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/",
+      "BasePath": "_content/SibSalamat",
+      "RelativePath": "css/.DS_Store",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/.DS_Store"
+    },
+    {
       "Identity": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/css/bg1.jpeg",
       "SourceId": "SibSalamat",
       "SourceType": "Discovered",
@@ -83,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/bg1.jpeg"
+    },
+    {
+      "Identity": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/css/Copy-of-PFSP-Oncology-LDDs-4 2.png",
+      "SourceId": "SibSalamat",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/",
+      "BasePath": "_content/SibSalamat",
+      "RelativePath": "css/Copy-of-PFSP-Oncology-LDDs-4 2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/Copy-of-PFSP-Oncology-LDDs-4 2.png"
     },
     {
       "Identity": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/css/Copy-of-PFSP-Oncology-LDDs-4.png",
@@ -102,12 +136,12 @@
       "OriginalItemSpec": "wwwroot/css/Copy-of-PFSP-Oncology-LDDs-4.png"
     },
     {
-      "Identity": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/css/flat-lay-medical-objects-composition-with-copy-space_23-2148502931.jpg.webp",
+      "Identity": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/css/empty.png",
       "SourceId": "SibSalamat",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/",
       "BasePath": "_content/SibSalamat",
-      "RelativePath": "css/flat-lay-medical-objects-composition-with-copy-space_23-2148502931.jpg.webp",
+      "RelativePath": "css/empty.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -116,15 +150,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/css/flat-lay-medical-objects-composition-with-copy-space_23-2148502931.jpg.webp"
+      "OriginalItemSpec": "wwwroot/css/empty.png"
     },
     {
-      "Identity": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/css/pills-capsules-seamless-pattern-background-wallpaper-paper-sketch-hand-drawn-doodle-minimalism-medicine-health-pills-204350976.jpg.webp",
+      "Identity": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/css/flat-lay-medical-objects-composition-with-copy-space_23-2148502931.jpg.png",
       "SourceId": "SibSalamat",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/",
       "BasePath": "_content/SibSalamat",
-      "RelativePath": "css/pills-capsules-seamless-pattern-background-wallpaper-paper-sketch-hand-drawn-doodle-minimalism-medicine-health-pills-204350976.jpg.webp",
+      "RelativePath": "css/flat-lay-medical-objects-composition-with-copy-space_23-2148502931.jpg.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -133,7 +167,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/css/pills-capsules-seamless-pattern-background-wallpaper-paper-sketch-hand-drawn-doodle-minimalism-medicine-health-pills-204350976.jpg.webp"
+      "OriginalItemSpec": "wwwroot/css/flat-lay-medical-objects-composition-with-copy-space_23-2148502931.jpg.png"
     },
     {
       "Identity": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/css/site.css",

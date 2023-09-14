@@ -3,23 +3,6 @@
     ViewData["Title"] = "ثبت نام داروخانه";
     var errorMessage = TempData["ErrorMessage"] as string;
 }
-<style>
-      .centered-container {
-             display: flex;
-             justify-content: center;
-             align-items: center;
-             height: 100vh;
-         }
-         .form-container {
-             background-color: rgb(0 0 0 / 66%); 
-             border-radius: 15px;
-             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-             width: 346px;
-             text-align: center;
-             padding: 20px 20px 40px;
-             margin-top: -45px;
-         }
- </style>
 
 <div class="centered-container">
     <div class="form-container">
@@ -49,6 +32,6 @@
             <label asp-for="City">شهر</label>
             <input asp-for="City" class="form-control" id="City" placeholder="شهر"/>
         </div>
-        <button type="submit" class="btn btn-primary" style="padding-top: 15px; margin-top: 20px">ثبت نام</button>
+        <button type="submit" class="btn btn-primary" style="padding-top: 15px; margin-top: 20px">ثبت</button>
     </div>
 </div>

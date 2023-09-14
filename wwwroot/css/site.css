@@ -18,9 +18,9 @@ html {
 }
 
 body {
-    background-image: url("Copy-of-PFSP-Oncology-LDDs-4.png");
+    background-image: url("flat-lay-medical-objects-composition-with-copy-space_23-2148502931.jpg.png");
     background-size: cover;
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
     background-attachment: fixed;
     margin-bottom: 60px;
 }
@@ -204,3 +204,25 @@ th {
     background-color: rgba(119, 182, 88, 0.94);
     color: white;
 }
+
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-container {
+    background-color: rgb(0 0 0 / 66%);
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    width: 346px;
+    text-align: center;
+    padding: 20px 20px 40px;
+    margin-top: -70px;
+}
+
+label {
+    color: white;
+}
+   
