@@ -35,7 +35,7 @@
     <div class="text-center mt-4">
         <p class="total-fee"> $@Model.SalesHistory.Sum(s => s.Price * s.Count) مجموع صورت حساب :</p>
     </div>
-    <button class="btn btn-primary" id="pay-button">پرداخت</button>
+    <button class="btn btn-primary click-btn" id="pay-button">پرداخت</button>
     <input type="hidden" id="total-amount" value="@Model.SalesHistory.Sum(s => s.Price * s.Count)"/> @*hidden for ajax requests *@
 
 </div>
