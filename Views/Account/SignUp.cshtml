@@ -4,6 +4,7 @@
     var errorMessage = TempData["ErrorMessage"] as string;
 }
 
+<body>
 <div class="centered-container">
     <div class="form-container">
         @if (!string.IsNullOrEmpty(errorMessage))
@@ -35,3 +36,4 @@
         <button type="submit" class="btn btn-primary" style="padding-top: 15px; margin-top: 20px">ثبت</button>
     </div>
 </div>
+</body>

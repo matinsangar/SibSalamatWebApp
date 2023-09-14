@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TvYLEODnOqM/1CKl3K4iFdIPd93KrEP2T2gsRJkAPcs=",
+  "Hash": "YFmG1+QHZnY39J9fxCulg0ir7WZ1wan7pZvyblAHw6w=",
   "Source": "SibSalamat",
   "BasePath": "_content/SibSalamat",
   "Mode": "Default",
@@ -153,12 +153,12 @@
       "OriginalItemSpec": "wwwroot/css/empty.png"
     },
     {
-      "Identity": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/css/flat-lay-medical-objects-composition-with-copy-space_23-2148502931.jpg.png",
+      "Identity": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/css/main.png",
       "SourceId": "SibSalamat",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/",
       "BasePath": "_content/SibSalamat",
-      "RelativePath": "css/flat-lay-medical-objects-composition-with-copy-space_23-2148502931.jpg.png",
+      "RelativePath": "css/main.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -167,7 +167,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/css/flat-lay-medical-objects-composition-with-copy-space_23-2148502931.jpg.png"
+      "OriginalItemSpec": "wwwroot/css/main.png"
     },
     {
       "Identity": "/Users/macbookair/SibSalamat/SibSalamat/wwwroot/css/site.css",
