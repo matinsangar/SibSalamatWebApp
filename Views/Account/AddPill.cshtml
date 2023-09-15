@@ -1,45 +1,48 @@
 @model SibSalamat.Models.Pill
-
-<form method="post">
-    <div class="form-group">
-        <label asp-for="Name">عنوان دارو</label>
-        <input asp-for="Name" class="form-control" required/>
-        <span asp-validation-for="Name" class="text-danger"></span>
+<div class="centered-container">
+    <div class="form-container">
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="Name">عنوان دارو</label>
+                <input asp-for="Name" class="form-control" required/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price">قیمت</label>
+                <input asp-for="Price" class="form-control" required/>
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageNumber">Image Number</label>
+                <input asp-for="ImageNumber" class="form-control" required/>
+                <span asp-validation-for="ImageNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AvailableCount">موجودی</label>
+                <input asp-for="AvailableCount" class="form-control" required/>
+                <span asp-validation-for="AvailableCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description">توضیحات</label>
+                <input asp-for="Description" class="form-control" required/>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Provider">داروخانه</label>
+                <input asp-for="Provider" class="form-control" required/>
+                <span asp-validation-for="Provider" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PharmacyNumber">کد داروخانه</label>
+                <input asp-for="PharmacyNumber" class="form-control" required/>
+                <span asp-validation-for="PharmacyNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PharmacyCity"> شهر</label>إ
+                <input asp-for="PharmacyCity" class="form-control" required/>
+                <span asp-validation-for="PharmacyCity" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary click-btn">Add Pill</button>
+        </form>
     </div>
-    <div class="form-group">
-        <label asp-for="Price">قیمت</label>
-        <input asp-for="Price" class="form-control" required/>
-        <span asp-validation-for="Price" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="ImageNumber">Image Number</label>
-        <input asp-for="ImageNumber" class="form-control" required/>
-        <span asp-validation-for="ImageNumber" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="AvailableCount">موجودی</label>
-        <input asp-for="AvailableCount" class="form-control" required/>
-        <span asp-validation-for="AvailableCount" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Description">توضیحات</label>
-        <input asp-for="Description" class="form-control" required/>
-        <span asp-validation-for="Description" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Provider">داروخانه</label>
-        <input asp-for="Provider" class="form-control" required/>
-        <span asp-validation-for="Provider" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="PharmacyNumber">کد داروخانه</label>
-        <input asp-for="PharmacyNumber" class="form-control" required/>
-        <span asp-validation-for="PharmacyNumber" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="PharmacyCity"> شهر</label>إ
-        <input asp-for="PharmacyCity" class="form-control" required/>
-        <span asp-validation-for="PharmacyCity" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary click-btn">Add Pill</button>
-</form>
+</div>
