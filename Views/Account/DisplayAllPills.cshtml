@@ -1,93 +1,94 @@
-@* @page "/DisplayAllPills" *@
 @model List<Pill>
 
 @{
     ViewData["Title"] = "All Pills";
 }
+<body class="displayAllPill">
 
-<h2 class="text-center mt-4">All Pills</h2>
+    <h2 class="text-center mt-4">All Pills</h2>
 
-<div class="container mt-4">
-    <div class="row">
-        @foreach (var pill in Model)
-        {
-            <input type="hidden" id="userId" value="@User.Identity.Name"/>
+    <div class="container mt-4">
+        <div class="row each-pill">
+            @foreach (var pill in Model)
+            {
+                <input type="hidden" id="userId" value="@User.Identity.Name"/>
 
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    @if (pill.ImageNumber == 1)
-                    {
-                        <img src="~/images/1.png" class="card-img-top" alt="@pill.Name"/>
-                    }
-                    @if (pill.ImageNumber == 2)
-                    {
-                        <img src="~/images/2.png" class="card-img-top" alt="@pill.Name"/>
-                    }
-                    @if (pill.ImageNumber == 3)
-                    {
-                        <img src="~/images/3.png" class="card-img-top" alt="@pill.Name"/>
-                    }
-                    @if (pill.ImageNumber == 4)
-                    {
-                        <img src="~/images/4.jpeg" class="card-img-top" alt="@pill.Name"/>
-                    }
-                    @if (pill.ImageNumber == 5)
-                    {
-                        <img src="~/images/5.jpeg" class="card-img-top" alt="@pill.Name"/>
-                    }
-                    @if (pill.ImageNumber == 6)
-                    {
-                        <img src="~/images/6.jpeg" class="card-img-top" alt="@pill.Name"/>
-                    }
-                    <div class="card-body">
-                        <h5 class="card-title">@pill.Name</h5>
-                        <p class="card-text">قیمت:@pill.Price</p>
-                        <p class="card-text">موجودی: <span class="available-count">@pill.AvailableCount</span></p>
-                        <p class="card-text description">
-                            @TruncateDescription(pill.Description, 7)
-                            @{
-                                object TruncateDescription(string? description, int wordCount)
-                                {
-                                    if (string.IsNullOrWhiteSpace(description))
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        @if (pill.ImageNumber == 1)
+                        {
+                            <img src="~/images/1.png" class="card-img-top" alt="@pill.Name"/>
+                        }
+                        @if (pill.ImageNumber == 2)
+                        {
+                            <img src="~/images/2.png" class="card-img-top" alt="@pill.Name"/>
+                        }
+                        @if (pill.ImageNumber == 3)
+                        {
+                            <img src="~/images/3.png" class="card-img-top" alt="@pill.Name"/>
+                        }
+                        @if (pill.ImageNumber == 4)
+                        {
+                            <img src="~/images/4.jpeg" class="card-img-top" alt="@pill.Name"/>
+                        }
+                        @if (pill.ImageNumber == 5)
+                        {
+                            <img src="~/images/5.jpeg" class="card-img-top" alt="@pill.Name"/>
+                        }
+                        @if (pill.ImageNumber == 6)
+                        {
+                            <img src="~/images/6.jpeg" class="card-img-top" alt="@pill.Name"/>
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title">@pill.Name</h5>
+                            <p class="card-text">قیمت:@pill.Price</p>
+                            <p class="card-text">موجودی: <span class="available-count">@pill.AvailableCount</span></p>
+                            <p class="card-text description">
+                                @TruncateDescription(pill.Description, 7)
+                                @{
+                                    object TruncateDescription(string? description, int wordCount)
                                     {
-                                        return string.Empty;
-                                    }
+                                        if (string.IsNullOrWhiteSpace(description))
+                                        {
+                                            return string.Empty;
+                                        }
 
-                                    var words = description.Split(' ');
-                                    if (words.Length <= wordCount)
-                                    {
-                                        return description;
-                                    }
+                                        var words = description.Split(' ');
+                                        if (words.Length <= wordCount)
+                                        {
+                                            return description;
+                                        }
 
-                                    return string.Join(" ", words.Take(wordCount)) + "...";
+                                        return string.Join(" ", words.Take(wordCount)) + "...";
+                                    }
                                 }
-                            }
-                        </p>
-                        <p class="card-text">از داروخانه: @pill.Provider</p>
-                        <p class="card-text">شهر: @pill.PharmacyCity</p>
-                        <p class="card-text">کد داروخانه: @pill.PharmacyNumber</p>
-                    </div>
-
-                    <div class="card-footer d-flex justify-content-between">
-                        <button class="btn btn-outline-pink add-to-favorites"
-                                onclick="addToFavorites('@pill.Name', '@User.Identity.Name')"
-                                data-product="@pill.Name">
-                            <i class="fas fa-heart"></i> Fav ♡
-                        </button>
-                        @* Buy Pill❤ *@
-                        <div class="count-section">
-                            <input type="number" class="form-control count-input new_input" placeholder="تعداد را وارد کنید"/>
-                            <button class="btn btn-outline-green" onclick="buyPill(this,'@pill.Name', '@pill.Price')">
-                                <i class="fas fa-shopping-cart"></i> 🛒
-                            </button>
+                            </p>
+                            <p class="card-text">از داروخانه: @pill.Provider</p>
+                            <p class="card-text">شهر: @pill.PharmacyCity</p>
+                            <p class="card-text">کد داروخانه: @pill.PharmacyNumber</p>
                         </div>
-                    </div>
 
+                        <div class="card-footer d-flex justify-content-between">
+                            <button class="btn btn-outline-pink add-to-favorites"
+                                    onclick="addToFavorites('@pill.Name', '@User.Identity.Name')"
+                                    data-product="@pill.Name">
+                                <i class="fas fa-heart"></i> Fav ♡
+                            </button>
+                            @* Buy Pill❤ *@
+                            <div class="count-section">
+                                <input type="number" class="form-control count-input new_input" placeholder="تعداد را وارد کنید"/>
+                                <button class="btn btn-outline-green" onclick="buyPill(this,'@pill.Name', '@pill.Price')">
+                                    <i class="fas fa-shopping-cart"></i> 🛒
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
-        }
+            }
+        </div>
     </div>
-</div>
+</body>
 <script>
      function TruncateDescription(description, wordCount) {
             var words = description.split(' ');

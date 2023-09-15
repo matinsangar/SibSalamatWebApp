@@ -267,3 +267,9 @@ label {
     padding-left: 10px;
     padding-right: 68px;
 }
+.displayAllPill{
+    background-image: url("empty.png");
+}
+.each-pill{
+    background-color: rgba(146, 174, 206, 0.49);
+}
