@@ -41,34 +41,62 @@
                     }
                     <div class="card-body">
                         <h5 class="card-title">@pill.Name</h5>
-                        <p class="card-text">Price: $@pill.Price</p>
-                        <p class="card-text">Count: <span class="available-count">@pill.AvailableCount</span></p>
-                        <p class="card-text">Description: @pill.Description</p>
-                        <p class="card-text">Provider Name: @pill.Provider</p>
-                        <p class="card-text">City: @pill.PharmacyCity</p>
-                        <p class="card-text">Pharmacy Number: @pill.PharmacyNumber</p>
+                        <p class="card-text">قیمت:@pill.Price</p>
+                        <p class="card-text">موجودی: <span class="available-count">@pill.AvailableCount</span></p>
+                        <p class="card-text description">
+                            @TruncateDescription(pill.Description, 7)
+                            @{
+                                object TruncateDescription(string? description, int wordCount)
+                                {
+                                    if (string.IsNullOrWhiteSpace(description))
+                                    {
+                                        return string.Empty;
+                                    }
+
+                                    var words = description.Split(' ');
+                                    if (words.Length <= wordCount)
+                                    {
+                                        return description;
+                                    }
+
+                                    return string.Join(" ", words.Take(wordCount)) + "...";
+                                }
+                            }
+                        </p>
+                        <p class="card-text">از داروخانه: @pill.Provider</p>
+                        <p class="card-text">شهر: @pill.PharmacyCity</p>
+                        <p class="card-text">کد داروخانه: @pill.PharmacyNumber</p>
                     </div>
 
                     <div class="card-footer d-flex justify-content-between">
-                        <button class="btn btn-outline-danger add-to-favorites"
+                        <button class="btn btn-outline-pink add-to-favorites"
                                 onclick="addToFavorites('@pill.Name', '@User.Identity.Name')"
                                 data-product="@pill.Name">
-                            <i class="fas fa-heart"></i> Add to Favorites
+                            <i class="fas fa-heart"></i> Fav ♡
                         </button>
-
-                        <input type="number" class="form-control btn btn-outline-danger btn-secondary count-input" placeholder="Enter Count"/>
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-success" onclick="buyPill(this,'@pill.Name', '@pill.Price')">
-                                <i class="fas fa-shopping-cart"></i> Buy
+                        @* Buy Pill❤ *@
+                        <div class="count-section">
+                            <input type="number" class="form-control count-input new_input" placeholder="تعداد را وارد کنید"/>
+                            <button class="btn btn-outline-green" onclick="buyPill(this,'@pill.Name', '@pill.Price')">
+                                <i class="fas fa-shopping-cart"></i> 🛒
                             </button>
                         </div>
                     </div>
+
                 </div>
             </div>
         }
     </div>
 </div>
 <script>
+     function TruncateDescription(description, wordCount) {
+            var words = description.split(' ');
+            if (words.length <= wordCount) {
+                return description;
+            }
+            var truncated = words.slice(0, wordCount).join(' ') + '...';
+            return truncated;
+        }
     function addToFavorites(productName, userName) {
             console.log("Adding product to favorites...");
         $.ajax({

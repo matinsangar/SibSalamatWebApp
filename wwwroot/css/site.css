@@ -226,9 +226,44 @@ label {
     color: white;
 }
 
-.click-btn{
+.click-btn {
     background-color: #92aece;
-    width: 100%; 
-    border-radius: 5px; 
-    padding: 10px; 
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.description {
+    margin-bottom: 10px;
+}
+
+.read-more {
+    cursor: pointer;
+    color: blue;
+}
+
+/* Style for the Add to Favorites button */
+.btn-outline-pink {
+    color: #fff;
+    background-color: #ff6b6b; /* Pink color */
+    border-color: #ff6b6b;
+}
+
+/* Style for the Buy Pill button */
+.btn-outline-green {
+    color: #fff;
+    background-color: #50c878; /* Green color */
+    border-color: #50c878;
+}
+
+/* Style for the count section */
+.count-section {
+    display: flex;
+    align-items: center;
+}
+
+.new_input {
+    margin-left: 3px;
+    padding-left: 10px;
+    padding-right: 68px;
 }
