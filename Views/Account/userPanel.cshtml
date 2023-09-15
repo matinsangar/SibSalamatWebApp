@@ -7,21 +7,17 @@
 
 <div class="centered-container">
     <div class="content">
-        <h2>حساب کاربری شما</h2>
+        <h2 style="color: #1a1e21">حساب کاربری شما</h2>
 
-        <div class="row">
-            <div class="col-md-4">
-                <a href="@Url.Action("DisplayAllPills", "Account")" class="btn btn-pink btn-block">خرید دارو</a>
-            </div>
-            <div class="col-md-4">
-                <a href="@Url.Action("Payment", "Account")" class="btn btn-blue btn-block">صورت حساب</a>
-            </div>
-            <div class="col-md-4">
-                <a href="@Url.Action("userLogOut", "Account")" class="btn btn-outline-danger btn-block">خروج</a>
-            </div>
-            <div class="col-md-4">
-                <p class="credit-text">Credit: @Model.Credit</p>
-            </div>
+        <div class="btn-container">
+            <a href="@Url.Action("DisplayAllPills", "Account")" class="btn btn-pink blurred-btn">خرید دارو</a>
         </div>
+        <div class="btn-container">
+            <a href="@Url.Action("Payment", "Account")" class="btn btn-blue blurred-btn">صورت حساب</a>
+        </div>
+        <div class="btn-container">
+            <a href="@Url.Action("userLogOut", "Account")" class="btn btn-outline-danger blurred-btn">خروج</a>
+        </div>
+        <div class="credit-text">Credit: @Model.Credit</div>
     </div>
 </div>

@@ -252,7 +252,7 @@ label {
 /* Style for the Buy Pill button */
 .btn-outline-green {
     color: #fff;
-    background-color: #50c878; /* Green color */
+    background-color: #5d9a6f; /* Green color */
     border-color: #50c878;
 }
 
@@ -272,4 +272,21 @@ label {
 }
 .each-pill{
     background-color: rgba(146, 174, 206, 0.49);
+}
+.blurred-btn {
+    background-color: rgba(3,3,3,0.2); /* Semi-transparent background for blur effect */
+    backdrop-filter: blur(10px); /* Apply a blur effect to the background */
+    border: none;
+    color: #030303;
+    width: 100%; /* Ensure all buttons have the same width */
+    margin: 5px 0; /* Add some margin for spacing */
+    padding: 10px; /* Adjust the padding as needed */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease-in-out;
+}
+
+.blurred-btn:hover {
+    filter: brightness(1.2); /* Brighten the button on hover */
 }
