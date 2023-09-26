@@ -102,6 +102,20 @@ public class Account : Controller
         return RedirectToAction("userLogin");
     }
 
+    [HttpPost]
+    public async Task<IActionResult> Login(Admin admin)
+    {
+        var isLoginValid = await _mongoDbContext.VerifyAdminLogin(admin.Name, admin.Password, admin.NezamPezeshki);
+        if (isLoginValid)
+        {
+            savedName = admin.Name;
+            return RedirectToAction("adminPanel", "Account");
+        }
+
+        TempData["ErrorMessage"] = "Invalid username or password.";
+        return RedirectToAction("Login");
+    }
+
     [HttpGet]
     public IActionResult AddPill()
     {
@@ -162,6 +176,7 @@ public class Account : Controller
         return View(viewModel);
     }
 
+    
     [HttpPost]
     public async Task<IActionResult> BuyPill(string productName, string userName, int count, double productPrice)
     {

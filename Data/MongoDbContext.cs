@@ -132,7 +132,24 @@ public class MongoDbContext
             return user.Credit;
         }
 
-        return 20;
+        return 0;
+    }
+
+    public async Task<double> getAdminCredit(string username)
+    {
+        var admin = await SellsHistrory.Find(u => u.PharmacyName == username).ToListAsync();
+        if (admin != null)
+        {
+            double amount = 0;
+            foreach (var sell in admin)
+            {
+                amount += sell.Price * sell.Count;
+            }
+
+            return amount;
+        }
+
+        return 0;
     }
 
     public async Task<Pill> getPillInfo(string name)
