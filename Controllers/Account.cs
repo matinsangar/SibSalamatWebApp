@@ -76,19 +76,6 @@ public class Account : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> Login(Admin admin)
-    {
-        var isLoginValid = await _mongoDbContext.VerifyAdminLogin(admin.Name, admin.Password, admin.NezamPezeshki);
-        if (isLoginValid)
-        {
-            return RedirectToAction("Index", "Home");
-        }
-
-        TempData["ErrorMessage"] = "Invalid username or password.";
-        return RedirectToAction("Login");
-    }
-
-    [HttpPost]
     public async Task<IActionResult> userLogin(User user)
     {
         var isLoginValid = await _mongoDbContext.VerifyUserLogin(user.Name, user.Password, user.NationalCode);
@@ -109,7 +96,7 @@ public class Account : Controller
         if (isLoginValid)
         {
             savedName = admin.Name;
-            return RedirectToAction("adminPanel", "Account");
+            return RedirectToAction("AdminPanel", "Account");
         }
 
         TempData["ErrorMessage"] = "Invalid username or password.";
@@ -176,7 +163,17 @@ public class Account : Controller
         return View(viewModel);
     }
 
-    
+    [HttpGet]
+    public async Task<IActionResult> AdminPanel()
+    {
+        var adminCredit = await _mongoDbContext.getAdminCredit(savedName);
+        var viewModel = new AdminPanelViewModel
+        {
+            Credit = adminCredit
+        };
+        return View(viewModel);
+    }
+
     [HttpPost]
     public async Task<IActionResult> BuyPill(string productName, string userName, int count, double productPrice)
     {

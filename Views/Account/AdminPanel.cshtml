@@ -1,0 +1,22 @@
+@using SibSalamat.Controllers
+@model SibSalamat.Views.Account.AdminPanelViewModel
+
+@{
+    ViewData["Title"] = "حساب کاربری داروخانه";
+}
+
+<div class="centered-container">
+    <div class="content">
+        <h2 style="color: #1a1e21">حساب کاربری شما</h2>
+
+        <div class="btn-container">
+            <a href="@Url.Action("DisplayAllPills", "Account")" class="btn btn-pink blurred-btn">Pills </a>
+        </div>
+        <div class="btn-container">
+            <a href="@Url.Action("AddPill", "Account")" class="btn btn-pink blurred-btn">Add Pill </a>
+        </div>
+        @* -- admin logout *@
+        @* -- admin add Pill *@
+        <div class="credit-text">Credit: @Model.Credit</div>
+    </div>
+</div>
