@@ -15,8 +15,10 @@
         <div class="btn-container">
             <a href="@Url.Action("AddPill", "Account")" class="btn btn-pink blurred-btn">Add Pill </a>
         </div>
-        @* -- admin logout *@
-        @* -- admin add Pill *@
+        <div class="btn-container">
+            <a href="@Url.Action("AdminLogOut", "Account")" class="btn btn-red blurred-btn">LogOut </a>
+        </div>
+        
         <div class="credit-text">Credit: @Model.Credit</div>
     </div>
 </div>

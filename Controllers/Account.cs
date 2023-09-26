@@ -227,9 +227,16 @@ public class Account : Controller
         return View(viewModel);
     }
 
-    public IActionResult userLogOut()
+    public IActionResult UserLogOut()
     {
-        savedName = null;
+        savedName = null!;
+        savedTotalAmount = double.NaN;
+        return RedirectToAction("index", "Home");
+    }
+
+    public IActionResult AdminLogOut()
+    {
+        savedName = null!;
         savedTotalAmount = double.NaN;
         return RedirectToAction("index", "Home");
     }
